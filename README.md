@@ -34,18 +34,18 @@ Ases is an esoteric programming language developed by me with the objective of b
 |         `;`          | Comment of one line                                                                            |
 
 ## Functions
-| Function | Description |
-|  :---:   | :---        |
-|   `0`    | Gets input of one character and stores in the stack |
-|   `1`    | Prints a character stored in the stack        |
-|   `2`    | Prints the message "ERROR!" and stops the program |
-|   `3`    | Exits the program with the status code defined by the value of the stack |
-|   `4`    | Adds the value of the A register with the value of the stack |
-|   `5`    | Subtracts the value of the A register with the value of the stack |
-|   `6`    | Saves a copy of the data memory |
-|   `7`    | Restores the copy of the data memory saved by the `6` function |
+| Function | Description                                                                            |
+|  :---:   | :---                                                                                   |
+|   `0`    | Gets input of one character and stores in the stack                                    |
+|   `1`    | Prints a character stored in the stack                                                 |
+|   `2`    | Prints the message "ERROR!" and stops the program                                      |
+|   `3`    | Exits the program with the status code defined by the value of the stack               |
+|   `4`    | Adds the value of the A register with the value of the stack                           |
+|   `5`    | Subtracts the value of the A register with the value of the stack                      |
+|   `6`    | Saves a copy of the data memory                                                        |
+|   `7`    | Restores the copy of the data memory saved by the `6` function                         |
 |   `8`    | If a copy of the data memory is saved, set the value of the stack to 1. Otherwise to 0 |
-|   `9`    | Compares the value of the A and B registers. |
+|   `9`    | Compares the value of the A and B registers.                                           |
 * If A > B  : Sets the value of the stack for 2  
 * If A == B : Sets the value of the stack for 1  
 * If A < B  : Sets the value of the stack for 0
