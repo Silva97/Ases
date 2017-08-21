@@ -1,0 +1,29 @@
+; Input/Output example in Ases
+; GitHub: https://github.com/DieBoy/Ases
+
+; Compacted code: +++++++++++++b@0!>1a9-%)B---1.bp@=a9-#3=1>)
+
++++++ +++++ +++ b ; B = 13
+
+@
+	0!> ; Get input and store in memory
+	1   ; Print the input
+	a9  ; Compare A and B
+	; If A == B, stack is equal 1
+	; Decreasing one, the result is zero if equal
+-%) ; Loop if A != B
+
+; 9 function
+; - Set stack for 2 if A greater than B (>)
+; - Set stack for 1 if A equal        B (==)
+; - Set stack for 0 if A less than    B (<)
+
+B--- 1 ; Print 10 (Line Feed)
+.b     ; B = 0
+p      ; Data Pointer = 0
+
+@
+	=a9 ; Compare the memory with B
+	-#3 ; If equal, exit the program
+	=1> ; Print the character in memory
+)

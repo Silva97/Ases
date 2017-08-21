@@ -1,0 +1,33 @@
+; Example of "Hello World" in Ases
+; GitHub: https://github.com/DieBoy/Ases
+
+; Compacted code: ++++++++++c---b@C4D++++dB-b%)D++++d.++4.+++++!A1=44444-4A1=4---4A11.+++4A>!<1D1=5555-5A1>=a<A1.+++4A1=5.+5A1=5--5A1
+
++++++ +++++ c ; C = 10
+---         b ; B = 7
+
+@
+	C4     ; A += C
+	D++++d ; D += 4
+B-b%)      ; Repeat B times
+
+D++++d     ; D += 4
+
+; A = C * B
+; D = 32
+
+.++ 4   ; A += 2
+
+.+++++! ; Memory[0] = 5
+
+A1            ; "H"
+=44444-4   A1 ; "e"
+=4---4     A1 ; "l"
+            1 ; "l"
+.+++ 4 A>!< 1 ; "o" - Memory[1] = 'o'
+           D1 ; " "
+=5555-5    A1 ; "W"
+>=a<       A1 ; "o"
+.+++ 4     A1 ; "r"
+=5 .+ 5    A1 ; "l"
+=5--5      A1 ; "d"

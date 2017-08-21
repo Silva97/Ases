@@ -1,0 +1,23 @@
+; Example of loop in Ases
+; GitHub: https://github.com/DieBoy/Ases
+
+; Compacted code: 0a.++++@bAd.++++@cA1+aC-c%)DaB-b%)
+
+0a ; Get the input and store in the A register
+
+.++++ @
+	b  ; Preserve counter in the B register
+	Ad ; Preserve the value of A in the D register
+	
+	.++++ @
+		c   ; Preserve counter in the C register
+		A1  ; Print character in the A register
+		+a  ; Increment the A register
+		C-c ; Decrement the C register
+		
+	%) ; Loop if C != 0
+	
+	Da  ; Restore the value of A
+	B-b ; Decrement B register
+	
+%) ; Loop if B != 0
