@@ -1,12 +1,12 @@
 /*********************
  * Programmed by Luiz Felipe
- * GitHub: https://github.com/DieBoy/
+ * GitHub: https://github.com/Silva97
  *
  * Distributed under the MIT license
  *
  * Ases v1.0 - Official interpreter for the esoteric programming language Ases.
  * To see help about the language Ases, read the README file in the repository:
- *         https://github.com/DieBoy/Ases/
+ *         https://github.com/Silva97/Ases/
  *********************/
 
 
