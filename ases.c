@@ -45,7 +45,7 @@ int main(int argc, char* argv[]){
 		if(strcmp(argv[1], "-h") == 0){
 			printf("Ases v1.0 - 'Official' interpreter for the esoteric programming language Ases\n");
 			printf("\tProgrammed by Luiz Felipe\n");
-			printf("\tGitHub: https://github.com/DieBoy/\n\n");
+			printf("\tGitHub: https://github.com/Silva97/\n\n");
 			printf("Use: ases [-c] [file]\n");
 			printf("\t-c   - Compact the code and show this. Otherwise run the code\n");
 			printf("\tfile - File for read the Ases code.\n");
@@ -53,7 +53,7 @@ int main(int argc, char* argv[]){
 
 			printf("Ases is an esoteric programming language developed by me.\n");
 			printf("Read the README file in the GitHub repository for help:\n");
-			printf("\thttps://github.com/DieBoy/Ases/\n");
+			printf("\thttps://github.com/Silva97/Ases/\n");
 
 		} else if(strcmp(argv[1], "-c") == 0){
 			f = fopen(argv[2], "r");
