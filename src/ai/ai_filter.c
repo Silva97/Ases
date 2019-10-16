@@ -5,7 +5,6 @@
  * @date 10/2019
  * @copyright MIT License
 */
-#include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
@@ -26,6 +25,7 @@ ai_code_t *ai_filter(FILE *input)
   int c;
   int line         = 1;
   int column       = 1;
+  int index        = 0;
   bool commentary  = false;
   ai_code_t *last  = NULL;
   ai_code_t *first = NULL;
@@ -52,23 +52,22 @@ ai_code_t *ai_filter(FILE *input)
 
     if (strchr(AI_INSTRUCTIONS, c)) {
       next              = malloc( sizeof (ai_code_t) );
+      next->index       = index++;
       next->line        = line;
-      next->column      = column;
+      next->column      = column++;
       next->instruction = c;
-      next->next        = NULL;
+      next->right       = NULL;
 
       if (!last) {
-        next->last = NULL;
+        next->left = NULL;
         last       = next;
         first      = last;
       } else {
-        last->next = next;
-        next->last = last;
-        last       = next;
+        last->right = next;
+        next->left  = last;
+        last        = next;
       }
     }
-
-    column++;
   }
 
   return first;
