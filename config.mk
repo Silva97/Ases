@@ -7,7 +7,7 @@ IPATH=/usr/local/bin/
 LK=cc
 CC=cc
 CFLAGS=-I include \
-	-std=c11 \
+	-std=gnu11 \
 	-Wall \
 	-Werror \
 	-pedantic-errors

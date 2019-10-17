@@ -1,0 +1,55 @@
+\hypertarget{ai__context_8c}{}\section{src/ai/ai\+\_\+context.c File Reference}
+\label{ai__context_8c}\index{src/ai/ai\+\_\+context.\+c@{src/ai/ai\+\_\+context.\+c}}
+
+
+The \hyperlink{ai__context_8c_a154a4b770186ba73cc1cf37ed0ffc770}{ai\+\_\+context()} source code.  
+
+
+{\ttfamily \#include \char`\"{}ai/ai.\+h\char`\"{}}\newline
+Include dependency graph for ai\+\_\+context.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{ai__context_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ai__context_8c_a154a4b770186ba73cc1cf37ed0ffc770}{ai\+\_\+context} (\hyperlink{structai__machine__t}{ai\+\_\+machine\+\_\+t} $\ast$machine, int size)
+\begin{DoxyCompactList}\small\item\em Prints the code context. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{ai__context_8c_a154a4b770186ba73cc1cf37ed0ffc770}{ai\+\_\+context()} source code. 
+
+\begin{DoxyAuthor}{Author}
+Luiz Felipe \href{mailto:felipe.silva337@yahoo.com}{\tt felipe.\+silva337@yahoo.\+com} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+10/2019 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+M\+IT License 
+\end{DoxyCopyright}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{ai__context_8c_a154a4b770186ba73cc1cf37ed0ffc770}\label{ai__context_8c_a154a4b770186ba73cc1cf37ed0ffc770}} 
+\index{ai\+\_\+context.\+c@{ai\+\_\+context.\+c}!ai\+\_\+context@{ai\+\_\+context}}
+\index{ai\+\_\+context@{ai\+\_\+context}!ai\+\_\+context.\+c@{ai\+\_\+context.\+c}}
+\subsubsection{\texorpdfstring{ai\+\_\+context()}{ai\_context()}}
+{\footnotesize\ttfamily void ai\+\_\+context (\begin{DoxyParamCaption}\item[{\hyperlink{structai__machine__t}{ai\+\_\+machine\+\_\+t} $\ast$}]{machine,  }\item[{int}]{size }\end{DoxyParamCaption})}
+
+
+
+Prints the code context. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em machine} & The Ases machine to print the context. \\
+\hline
+{\em size} & The context\textquotesingle{}s size.\\
+\hline
+\end{DoxyParams}
+The \textquotesingle{}size\textquotesingle{} instructions left and right is printed in stdout. The current instruction is pointed with \textquotesingle{}$^\wedge$\textquotesingle{} character. 

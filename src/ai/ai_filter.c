@@ -1,5 +1,5 @@
 /**
- * @brief ai_filter() source code.
+ * @brief The ai_filter() source code.
  * @file ai_filter.c
  * @author Luiz Felipe <felipe.silva337@yahoo.com>
  * @date 10/2019

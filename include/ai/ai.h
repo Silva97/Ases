@@ -10,5 +10,6 @@
 #define _AI_H
 
 #include "ai/machine.h"
+#include "ai/debug.h"
 
 #endif /* _AI_H */

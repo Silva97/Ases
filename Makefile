@@ -7,7 +7,7 @@ SRC=$(wildcard \
 OBJ=$(call src2obj,$(SRC))
 
 
-all: $(OBJ) $(SUB)
+all: $(OBJ)
 	$(LK) $(OBJ) -o $(BINDIR)/$(BINARY)
 
 install:

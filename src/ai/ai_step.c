@@ -1,11 +1,12 @@
 /**
- * @brief ai_step() source code.
+ * @brief The ai_step() and ai_code_error() source code.
  * @file ai_step.c
  * @author Luiz Felipe <felipe.silva337@yahoo.com>
  * @date 10/2019
  * @copyright MIT License
 */
-#include "ai/machine.h"
+#include <stdlib.h>
+#include "ai/ai.h"
 
 /**
  * @brief   Search for a instruction by the index.
@@ -65,7 +66,7 @@ static ai_code_t *ai_code_smatch(ai_code_t *code, char direction)
  * @param    instruction    The failed instruction.
  * @param    message        The error message to print.
 */
-static void ai_code_error(ai_code_t *instruction, char *message)
+void ai_code_error(ai_code_t *instruction, char *message)
 {
   fprintf(stderr, "[%d:%d] Instruction `%c' error:\n  %s\n",
           instruction->line,
@@ -77,15 +78,15 @@ static void ai_code_error(ai_code_t *instruction, char *message)
 /**
  * @brief   Run one step of the Ases machine.
  * @param   machine    The Ases machine to run the instruction.
- * @retval  0          If all OK.
- * @retval  non-zero   If a error occurs.
+ * @return  The status of the machine.
 */
-int ai_step(ai_machine_t *machine)
+ai_step_status_t ai_step(ai_machine_t *machine)
 {
   ai_code_t *instruction;
+  ai_step_status_t status = STEP_OK;
 
   if (!machine || !machine->code)
-    return 1;
+    return STEP_EOF;
   
   switch (machine->code->instruction) {
     case '@':
@@ -122,32 +123,29 @@ int ai_step(ai_machine_t *machine)
       machine->stack = machine->dp;
       break;
     case '$':
-      machine->rd = machine->code->index;
+      if (!machine->code->right)
+        return STEP_NEXT_EOF;
+
+      machine->rd = machine->code->right->index;
       break;
     case '*':
       instruction = ai_code_sindex(machine->first, machine->rd);
-      if (!instruction) {
-        ai_code_error(machine->code, "Pointer in D register is not valid.");
-        return 2;
-      }
+      if (!instruction)
+        return STEP_POINTER_INVALID;
 
       machine->code = instruction;
       goto end_code;
     case ')':
       instruction = ai_code_smatch(machine->code, 'L');
-      if (!instruction) {
-        ai_code_error(machine->code, "Not matched `@' in the left.");
-        return 3;
-      }
+      if (!instruction)
+        return STEP_NOT_LMATCH;
 
       machine->code = instruction;
       goto end_code;
     case '(':
       instruction = ai_code_smatch(machine->code, 'R');
-      if (!instruction) {
-        ai_code_error(machine->code, "Not matched `@' in the right.");
-        return 3;
-      }
+      if (!instruction)
+        return STEP_NOT_RMATCH;
 
       machine->code = instruction;
       goto end_code;
@@ -158,18 +156,14 @@ int ai_step(ai_machine_t *machine)
       machine->stack = machine->data[ machine->dp ];
       break;
     case '>':
-      if (machine->dp + 1 < machine->dp) {
-        ai_code_error(machine->code, "Data pointer's overflow.");
-        return 4;
-      }
+      if (machine->dp + 1 > (ai_register_t) -1)
+        return STEP_DP_OVERFLOW;
 
       machine->dp++;
       break;
     case '<':
-      if (machine->dp - 1 > machine->dp) {
-        ai_code_error(machine->code, "Data pointer's underflow.");
-        return 5;
-      }
+      if (machine->dp - 1 < 0)
+        return STEP_DP_UNDERFLOW;
 
       machine->dp--;
       break;
@@ -192,10 +186,40 @@ int ai_step(ai_machine_t *machine)
         machine->code = machine->code->right;
       }
       break;
+    case '0':
+      machine->stack = getchar();
+      break;
+    case '1':
+      putchar(machine->stack);
+      break;
+    case '2':
+      status = STEP_FUNC_ERROR;
+      break;
+    case '3':
+      status = STEP_FUNC_EXIT;
+      break;
+    case '4':
+      machine->ra += machine->stack;
+      break;
+    case '5':
+      machine->ra -= machine->stack;
+      break;
+    case '6':
+      machine->stack += 10;
+      break;
+    case '7':
+      machine->stack -= 10;
+      break;
+    case '8':
+      ai_state(machine);
+      break;
+    case '9':
+      machine->stack = (machine->ra <= machine->rb);
+      break;
   }
 
   machine->code = machine->code->right;
 
 end_code:
-  return 0;
+  return status;
 }

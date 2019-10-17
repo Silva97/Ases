@@ -1,5 +1,5 @@
 /**
- * @brief ai_machine_create() source code.
+ * @brief The ai_machine_create() source code.
  * @file ai_machine_create.c
  * @author Luiz Felipe <felipe.silva337@yahoo.com>
  * @date 10/2019
