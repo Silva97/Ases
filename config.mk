@@ -7,6 +7,7 @@ IPATH=/usr/local/bin/
 LK=cc
 CC=cc
 CFLAGS=-I include \
+	-O2 \
 	-std=gnu11 \
 	-Wall \
 	-Werror \
