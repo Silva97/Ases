@@ -78,11 +78,14 @@ $(function() {
 <p>Declarations about the Ases machine.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;inttypes.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for machine.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="machine_8h__incl.png" border="0" usemap="#include_2ai_2machine_8h" alt=""/></div>
+<map name="include_2ai_2machine_8h" id="include_2ai_2machine_8h">
+</map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -98,7 +101,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <area shape="rect" id="node5" href="ai__dump_8c.html" title="The ai_dump() source code. " alt="" coords="314,229,433,256"/>
 <area shape="rect" id="node6" href="ai__run_8c.html" title="The ai_run() and ai_reset() source code. " alt="" coords="457,229,561,256"/>
 <area shape="rect" id="node7" href="ai__state_8c.html" title="The ai_state() source code. " alt="" coords="585,229,700,256"/>
-<area shape="rect" id="node8" href="ai__step_8c.html" title="The ai_step() and ai_code_error() source code. " alt="" coords="725,229,835,256"/>
+<area shape="rect" id="node8" href="ai__step_8c.html" title="The ai_step(), ai_code_sindex(), ai_code_smatch() and ai_code_error() source code. " alt="" coords="725,229,835,256"/>
 </map>
 </div>
 </div>
@@ -135,16 +138,17 @@ Typedefs</h2></td></tr>
 Enumerations</h2></td></tr>
 <tr class="memitem:ac2d34692cf8aa03fde6852d02d545ce5"><td class="memItemLeft" align="right" valign="top"><a id="ac2d34692cf8aa03fde6852d02d545ce5"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="machine_8h.html#ac2d34692cf8aa03fde6852d02d545ce5">ai_step_status_t</a> { <br />
 &#160;&#160;<b>STEP_OK</b> = 0, 
+<b>STEP_BREAK</b>, 
 <b>STEP_EOF</b>, 
 <b>STEP_NEXT_EOF</b>, 
-<b>STEP_POINTER_INVALID</b>, 
 <br />
-&#160;&#160;<b>STEP_NOT_LMATCH</b>, 
+&#160;&#160;<b>STEP_POINTER_INVALID</b>, 
+<b>STEP_NOT_LMATCH</b>, 
 <b>STEP_NOT_RMATCH</b>, 
 <b>STEP_DP_OVERFLOW</b>, 
-<b>STEP_DP_UNDERFLOW</b>, 
 <br />
-&#160;&#160;<b>STEP_FUNC_ERROR</b>, 
+&#160;&#160;<b>STEP_DP_UNDERFLOW</b>, 
+<b>STEP_FUNC_ERROR</b>, 
 <b>STEP_FUNC_EXIT</b>
 <br />
  }<tr class="memdesc:ac2d34692cf8aa03fde6852d02d545ce5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The status returned by <a class="el" href="machine_8h.html#aeea37f15a9edc5a9be9fc23108c41a62" title="Run one step of the Ases machine. ">ai_step()</a> function. <br /></td></tr>
@@ -156,6 +160,12 @@ Functions</h2></td></tr>
 <tr class="memitem:af195dc53b4ff1cdc3fd61f2201c1f4c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structai__code__t.html">ai_code_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="machine_8h.html#af195dc53b4ff1cdc3fd61f2201c1f4c9">ai_filter</a> (FILE *input)</td></tr>
 <tr class="memdesc:af195dc53b4ff1cdc3fd61f2201c1f4c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Filter the code and return the code.  <a href="#af195dc53b4ff1cdc3fd61f2201c1f4c9">More...</a><br /></td></tr>
 <tr class="separator:af195dc53b4ff1cdc3fd61f2201c1f4c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3cfcf99aa5a6889a67d2c8cf1e0fbfc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structai__code__t.html">ai_code_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="machine_8h.html#ae3cfcf99aa5a6889a67d2c8cf1e0fbfc">ai_code_sindex</a> (<a class="el" href="structai__code__t.html">ai_code_t</a> *code, int index)</td></tr>
+<tr class="memdesc:ae3cfcf99aa5a6889a67d2c8cf1e0fbfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search for a instruction by the index.  <a href="#ae3cfcf99aa5a6889a67d2c8cf1e0fbfc">More...</a><br /></td></tr>
+<tr class="separator:ae3cfcf99aa5a6889a67d2c8cf1e0fbfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e5c597b7363ec64f152df5779857bfc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structai__code__t.html">ai_code_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="machine_8h.html#a4e5c597b7363ec64f152df5779857bfc">ai_code_smatch</a> (<a class="el" href="structai__code__t.html">ai_code_t</a> *code, char direction)</td></tr>
+<tr class="memdesc:a4e5c597b7363ec64f152df5779857bfc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search for matched '@' for left or right.  <a href="#a4e5c597b7363ec64f152df5779857bfc">More...</a><br /></td></tr>
+<tr class="separator:a4e5c597b7363ec64f152df5779857bfc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a849ed157f6bac41cd6cb3bfb1c1fb4ee"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="machine_8h.html#a849ed157f6bac41cd6cb3bfb1c1fb4ee">ai_code_error</a> (<a class="el" href="structai__code__t.html">ai_code_t</a> *instruction, char *message)</td></tr>
 <tr class="memdesc:a849ed157f6bac41cd6cb3bfb1c1fb4ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prints a error message with informations about the instruction.  <a href="#a849ed157f6bac41cd6cb3bfb1c1fb4ee">More...</a><br /></td></tr>
 <tr class="separator:a849ed157f6bac41cd6cb3bfb1c1fb4ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -307,6 +317,94 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ae3cfcf99aa5a6889a67d2c8cf1e0fbfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3cfcf99aa5a6889a67d2c8cf1e0fbfc">&#9670;&nbsp;</a></span>ai_code_sindex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structai__code__t.html">ai_code_t</a>* ai_code_sindex </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structai__code__t.html">ai_code_t</a> *&#160;</td>
+          <td class="paramname"><em>code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>index</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Search for a instruction by the index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">code</td><td>The code struct. </td></tr>
+    <tr><td class="paramname">index</td><td>The index of the instruction to search. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">NULL</td><td>If not find the instruction. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The pointer to the instruction. </dd></dl>
+
+</div>
+</div>
+<a id="a4e5c597b7363ec64f152df5779857bfc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e5c597b7363ec64f152df5779857bfc">&#9670;&nbsp;</a></span>ai_code_smatch()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structai__code__t.html">ai_code_t</a>* ai_code_smatch </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structai__code__t.html">ai_code_t</a> *&#160;</td>
+          <td class="paramname"><em>code</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char&#160;</td>
+          <td class="paramname"><em>direction</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Search for matched '@' for left or right. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">code</td><td>The initial instruction. </td></tr>
+    <tr><td class="paramname">direction</td><td>'L' to left, 'R' to right. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">NULL</td><td>If not matched any instruction. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The matched instruction. </dd></dl>
 
 </div>
 </div>
@@ -474,7 +572,7 @@ Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Oct 18 2019 10:26:09 for Ases by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Fri Oct 18 2019 11:58:10 for Ases by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>

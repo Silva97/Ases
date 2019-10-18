@@ -2,6 +2,8 @@ var searchData=
 [
   ['ai_2eh',['ai.h',['../ai_8h.html',1,'']]],
   ['ai_5fcode_5ferror',['ai_code_error',['../machine_8h.html#a849ed157f6bac41cd6cb3bfb1c1fb4ee',1,'ai_code_error(ai_code_t *instruction, char *message):&#160;ai_step.c'],['../ai__step_8c.html#a849ed157f6bac41cd6cb3bfb1c1fb4ee',1,'ai_code_error(ai_code_t *instruction, char *message):&#160;ai_step.c']]],
+  ['ai_5fcode_5fsindex',['ai_code_sindex',['../machine_8h.html#ae3cfcf99aa5a6889a67d2c8cf1e0fbfc',1,'ai_code_sindex(ai_code_t *code, int index):&#160;ai_step.c'],['../ai__step_8c.html#ae3cfcf99aa5a6889a67d2c8cf1e0fbfc',1,'ai_code_sindex(ai_code_t *code, int index):&#160;ai_step.c']]],
+  ['ai_5fcode_5fsmatch',['ai_code_smatch',['../machine_8h.html#a4e5c597b7363ec64f152df5779857bfc',1,'ai_code_smatch(ai_code_t *code, char direction):&#160;ai_step.c'],['../ai__step_8c.html#a4e5c597b7363ec64f152df5779857bfc',1,'ai_code_smatch(ai_code_t *code, char direction):&#160;ai_step.c']]],
   ['ai_5fcode_5ft',['ai_code_t',['../structai__code__t.html',1,'']]],
   ['ai_5fcommentary',['AI_COMMENTARY',['../machine_8h.html#a1ee8e54e67138dc78797dcf351366107',1,'machine.h']]],
   ['ai_5fconsole',['ai_console',['../machine_8h.html#ab12b1ee7d61cfd4173f81fea3030e626',1,'ai_console(ai_machine_t *machine):&#160;ai_console.c'],['../ai__console_8c.html#ab12b1ee7d61cfd4173f81fea3030e626',1,'ai_console(ai_machine_t *machine):&#160;ai_console.c']]],

@@ -56,6 +56,7 @@ ai_code_t *ai_filter(FILE *input)
       next->line        = line;
       next->column      = column++;
       next->instruction = c;
+      next->breakpoint  = false;
       next->right       = NULL;
 
       if (!last) {

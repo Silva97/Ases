@@ -9,6 +9,7 @@
 #define _MACHINE_H
 
 #include <stdio.h>
+#include <stdbool.h>
 #include <inttypes.h>
 
 /** The size of the data memory of a Ases machine */
@@ -38,6 +39,7 @@ typedef uint16_t ai_register_t;  /**< A register in te Ases machine. */
 */
 typedef enum ai_step_status {
   STEP_OK = 0,
+  STEP_BREAK,
   STEP_EOF,
   STEP_NEXT_EOF,
   STEP_POINTER_INVALID,
@@ -59,6 +61,7 @@ typedef struct ai_code {
   int  line;             /**< Line number in the source code. */
   int  column;           /**< Column number of the line in the source code. */
   char instruction;      /**< Instruction character. */
+  bool breakpoint;       /**< Set if it a breakpoint or not. */
 } ai_code_t;
 
 /**
@@ -78,6 +81,8 @@ typedef struct ai_machine {
 
 
 ai_code_t        *ai_filter(FILE *input);
+ai_code_t        *ai_code_sindex(ai_code_t *code, int index);
+ai_code_t        *ai_code_smatch(ai_code_t *code, char direction);
 void              ai_code_error(ai_code_t *instruction, char *message);
 ai_step_status_t  ai_step(ai_machine_t *machine);
 ai_step_status_t  ai_run(ai_machine_t *machine);

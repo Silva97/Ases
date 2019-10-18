@@ -1,5 +1,5 @@
 <map id="src/ai/ai_context.c" name="src/ai/ai_context.c">
-<area shape="rect" id="node2" href="$ai_8h.html" title="Includes all headers of the Ases interpreter. " alt="" coords="54,80,111,107"/>
-<area shape="rect" id="node3" href="$machine_8h.html" title="Declarations about the Ases machine. " alt="" coords="35,229,131,256"/>
-<area shape="rect" id="node6" href="$debug_8h.html" title="Declarations about the Ases debugger. " alt="" coords="81,155,164,181"/>
+<area shape="rect" id="node2" href="$ai_8h.html" title="Includes all headers of the Ases interpreter. " alt="" coords="99,80,157,107"/>
+<area shape="rect" id="node3" href="$machine_8h.html" title="Declarations about the Ases machine. " alt="" coords="80,229,176,256"/>
+<area shape="rect" id="node7" href="$debug_8h.html" title="Declarations about the Ases debugger. " alt="" coords="127,155,209,181"/>
 </map>

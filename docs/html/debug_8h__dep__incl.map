@@ -5,5 +5,5 @@
 <area shape="rect" id="node5" href="$ai__dump_8c.html" title="The ai_dump() source code. " alt="" coords="314,155,433,181"/>
 <area shape="rect" id="node6" href="$ai__run_8c.html" title="The ai_run() and ai_reset() source code. " alt="" coords="457,155,561,181"/>
 <area shape="rect" id="node7" href="$ai__state_8c.html" title="The ai_state() source code. " alt="" coords="585,155,700,181"/>
-<area shape="rect" id="node8" href="$ai__step_8c.html" title="The ai_step() and ai_code_error() source code. " alt="" coords="725,155,835,181"/>
+<area shape="rect" id="node8" href="$ai__step_8c.html" title="The ai_step(), ai_code_sindex(), ai_code_smatch() and ai_code_error() source code. " alt="" coords="725,155,835,181"/>
 </map>

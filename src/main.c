@@ -111,7 +111,7 @@ int main(int argc, char **argv)
 void show_help()
 {
   puts(
-    "Ases - Interpreter to Ases esoteric programming language.\n"
+    "Ases v2.0 - Interpreter to Ases esoteric programming language.\n"
     "Developed by Luiz Felipe <felipe.silva337@yahoo.com>\n"
     "GitHub: https://github.com/Silva97/Ases\n\n"
 

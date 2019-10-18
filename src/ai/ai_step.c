@@ -1,5 +1,5 @@
 /**
- * @brief The ai_step() and ai_code_error() source code.
+ * @brief The ai_step(), ai_code_sindex(), ai_code_smatch() and ai_code_error() source code.
  * @file ai_step.c
  * @author Luiz Felipe <felipe.silva337@yahoo.com>
  * @date 10/2019
@@ -15,7 +15,7 @@
  * @retval  NULL     If not find the instruction.
  * @return  The pointer to the instruction.
 */
-static ai_code_t *ai_code_sindex(ai_code_t *code, int index)
+ai_code_t *ai_code_sindex(ai_code_t *code, int index)
 {
   while (code && code->index != index) {
     if (code->index > index) {
@@ -35,7 +35,7 @@ static ai_code_t *ai_code_sindex(ai_code_t *code, int index)
  * @retval  NULL       If not matched any instruction.
  * @return  The matched instruction.
 */
-static ai_code_t *ai_code_smatch(ai_code_t *code, char direction)
+ai_code_t *ai_code_smatch(ai_code_t *code, char direction)
 {
   char instruction = (direction == 'L')? ')' : '(';
   int  context     = 1;
@@ -84,9 +84,12 @@ ai_step_status_t ai_step(ai_machine_t *machine)
 {
   ai_code_t *instruction;
   ai_step_status_t status = STEP_OK;
+  bool breakpoint;
 
   if (!machine || !machine->code)
     return STEP_EOF;
+  
+  breakpoint = machine->code->breakpoint;
   
   switch (machine->code->instruction) {
     case '@':
@@ -222,5 +225,8 @@ ai_step_status_t ai_step(ai_machine_t *machine)
   machine->code = machine->code->right;
 
 end_code:
-  return status;
+  if (breakpoint && status == STEP_OK)
+    return STEP_BREAK;
+  else
+    return status;
 }

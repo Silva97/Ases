@@ -6,15 +6,18 @@ Declarations about the Ases machine.
 
 
 {\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
 {\ttfamily \#include $<$inttypes.\+h$>$}\newline
-Include dependency graph for machine.\+h\+:\nopagebreak
+Include dependency graph for machine.\+h\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=204pt]{machine_8h__incl}
+\includegraphics[width=278pt]{machine_8h__incl}
 \end{center}
 \end{figure}
-This graph shows which files directly or indirectly include this file\+:\nopagebreak
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -52,15 +55,16 @@ typedef uint16\+\_\+t \hyperlink{machine_8h_a74ebfc967a5948f22ad4c9dffa32c233}{a
 \mbox{\Hypertarget{machine_8h_ac2d34692cf8aa03fde6852d02d545ce5}\label{machine_8h_ac2d34692cf8aa03fde6852d02d545ce5}} 
 enum \hyperlink{machine_8h_ac2d34692cf8aa03fde6852d02d545ce5}{ai\+\_\+step\+\_\+status\+\_\+t} \{ \newline
 {\bfseries S\+T\+E\+P\+\_\+\+OK} = 0, 
+{\bfseries S\+T\+E\+P\+\_\+\+B\+R\+E\+AK}, 
 {\bfseries S\+T\+E\+P\+\_\+\+E\+OF}, 
 {\bfseries S\+T\+E\+P\+\_\+\+N\+E\+X\+T\+\_\+\+E\+OF}, 
-{\bfseries S\+T\+E\+P\+\_\+\+P\+O\+I\+N\+T\+E\+R\+\_\+\+I\+N\+V\+A\+L\+ID}, 
 \newline
+{\bfseries S\+T\+E\+P\+\_\+\+P\+O\+I\+N\+T\+E\+R\+\_\+\+I\+N\+V\+A\+L\+ID}, 
 {\bfseries S\+T\+E\+P\+\_\+\+N\+O\+T\+\_\+\+L\+M\+A\+T\+CH}, 
 {\bfseries S\+T\+E\+P\+\_\+\+N\+O\+T\+\_\+\+R\+M\+A\+T\+CH}, 
 {\bfseries S\+T\+E\+P\+\_\+\+D\+P\+\_\+\+O\+V\+E\+R\+F\+L\+OW}, 
-{\bfseries S\+T\+E\+P\+\_\+\+D\+P\+\_\+\+U\+N\+D\+E\+R\+F\+L\+OW}, 
 \newline
+{\bfseries S\+T\+E\+P\+\_\+\+D\+P\+\_\+\+U\+N\+D\+E\+R\+F\+L\+OW}, 
 {\bfseries S\+T\+E\+P\+\_\+\+F\+U\+N\+C\+\_\+\+E\+R\+R\+OR}, 
 {\bfseries S\+T\+E\+P\+\_\+\+F\+U\+N\+C\+\_\+\+E\+X\+IT}
  \}\begin{DoxyCompactList}\small\item\em The status returned by \hyperlink{machine_8h_aeea37f15a9edc5a9be9fc23108c41a62}{ai\+\_\+step()} function. \end{DoxyCompactList}
@@ -70,6 +74,10 @@ enum \hyperlink{machine_8h_ac2d34692cf8aa03fde6852d02d545ce5}{ai\+\_\+step\+\_\+
 \item 
 \hyperlink{structai__code__t}{ai\+\_\+code\+\_\+t} $\ast$ \hyperlink{machine_8h_af195dc53b4ff1cdc3fd61f2201c1f4c9}{ai\+\_\+filter} (F\+I\+LE $\ast$input)
 \begin{DoxyCompactList}\small\item\em Filter the code and return the code. \end{DoxyCompactList}\item 
+\hyperlink{structai__code__t}{ai\+\_\+code\+\_\+t} $\ast$ \hyperlink{machine_8h_ae3cfcf99aa5a6889a67d2c8cf1e0fbfc}{ai\+\_\+code\+\_\+sindex} (\hyperlink{structai__code__t}{ai\+\_\+code\+\_\+t} $\ast$code, int index)
+\begin{DoxyCompactList}\small\item\em Search for a instruction by the index. \end{DoxyCompactList}\item 
+\hyperlink{structai__code__t}{ai\+\_\+code\+\_\+t} $\ast$ \hyperlink{machine_8h_a4e5c597b7363ec64f152df5779857bfc}{ai\+\_\+code\+\_\+smatch} (\hyperlink{structai__code__t}{ai\+\_\+code\+\_\+t} $\ast$code, char direction)
+\begin{DoxyCompactList}\small\item\em Search for matched \textquotesingle{}@\textquotesingle{} for left or right. \end{DoxyCompactList}\item 
 void \hyperlink{machine_8h_a849ed157f6bac41cd6cb3bfb1c1fb4ee}{ai\+\_\+code\+\_\+error} (\hyperlink{structai__code__t}{ai\+\_\+code\+\_\+t} $\ast$instruction, char $\ast$message)
 \begin{DoxyCompactList}\small\item\em Prints a error message with informations about the instruction. \end{DoxyCompactList}\item 
 \hyperlink{machine_8h_ac2d34692cf8aa03fde6852d02d545ce5}{ai\+\_\+step\+\_\+status\+\_\+t} \hyperlink{machine_8h_aeea37f15a9edc5a9be9fc23108c41a62}{ai\+\_\+step} (\hyperlink{structai__machine__t}{ai\+\_\+machine\+\_\+t} $\ast$machine)
@@ -158,6 +166,56 @@ Prints a error message with informations about the instruction.
 {\em message} & The error message to print. \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{machine_8h_ae3cfcf99aa5a6889a67d2c8cf1e0fbfc}\label{machine_8h_ae3cfcf99aa5a6889a67d2c8cf1e0fbfc}} 
+\index{machine.\+h@{machine.\+h}!ai\+\_\+code\+\_\+sindex@{ai\+\_\+code\+\_\+sindex}}
+\index{ai\+\_\+code\+\_\+sindex@{ai\+\_\+code\+\_\+sindex}!machine.\+h@{machine.\+h}}
+\subsubsection{\texorpdfstring{ai\+\_\+code\+\_\+sindex()}{ai\_code\_sindex()}}
+{\footnotesize\ttfamily \hyperlink{structai__code__t}{ai\+\_\+code\+\_\+t}$\ast$ ai\+\_\+code\+\_\+sindex (\begin{DoxyParamCaption}\item[{\hyperlink{structai__code__t}{ai\+\_\+code\+\_\+t} $\ast$}]{code,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Search for a instruction by the index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & The code struct. \\
+\hline
+{\em index} & The index of the instruction to search. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N\+U\+LL} & If not find the instruction. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyReturn}{Returns}
+The pointer to the instruction. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{machine_8h_a4e5c597b7363ec64f152df5779857bfc}\label{machine_8h_a4e5c597b7363ec64f152df5779857bfc}} 
+\index{machine.\+h@{machine.\+h}!ai\+\_\+code\+\_\+smatch@{ai\+\_\+code\+\_\+smatch}}
+\index{ai\+\_\+code\+\_\+smatch@{ai\+\_\+code\+\_\+smatch}!machine.\+h@{machine.\+h}}
+\subsubsection{\texorpdfstring{ai\+\_\+code\+\_\+smatch()}{ai\_code\_smatch()}}
+{\footnotesize\ttfamily \hyperlink{structai__code__t}{ai\+\_\+code\+\_\+t}$\ast$ ai\+\_\+code\+\_\+smatch (\begin{DoxyParamCaption}\item[{\hyperlink{structai__code__t}{ai\+\_\+code\+\_\+t} $\ast$}]{code,  }\item[{char}]{direction }\end{DoxyParamCaption})}
+
+
+
+Search for matched \textquotesingle{}@\textquotesingle{} for left or right. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & The initial instruction. \\
+\hline
+{\em direction} & \textquotesingle{}L\textquotesingle{} to left, \textquotesingle{}R\textquotesingle{} to right. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N\+U\+LL} & If not matched any instruction. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyReturn}{Returns}
+The matched instruction. 
+\end{DoxyReturn}
 \mbox{\Hypertarget{machine_8h_ab12b1ee7d61cfd4173f81fea3030e626}\label{machine_8h_ab12b1ee7d61cfd4173f81fea3030e626}} 
 \index{machine.\+h@{machine.\+h}!ai\+\_\+console@{ai\+\_\+console}}
 \index{ai\+\_\+console@{ai\+\_\+console}!machine.\+h@{machine.\+h}}
