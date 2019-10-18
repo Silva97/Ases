@@ -191,6 +191,7 @@ ai_step_status_t ai_step(ai_machine_t *machine)
       break;
     case '1':
       putchar(machine->stack);
+      fflush(stdout);
       break;
     case '2':
       status = STEP_FUNC_ERROR;

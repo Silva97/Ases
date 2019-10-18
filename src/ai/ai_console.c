@@ -53,9 +53,7 @@ void ai_console(ai_machine_t *machine)
     ai_state(machine);
     printf("<status> %s\n- ", ai_get_status(status));
 
-    do {
-      fgets(input, sizeof input - 1, stdin);
-    } while (input[0] == '\n');
+    while ( !fgets(input, sizeof input - 1, stdin) && input[0] == '\n' );
 
     switch (input[0]) {
       case 'r':
@@ -88,8 +86,8 @@ void ai_console(ai_machine_t *machine)
         count = 0;
         sscanf(&input[1], "%i %i", &start, &count);
         
-        if (!start && !count) {
-          fputs("Error: Invalid <s> or <c> value.\n", stderr);
+        if (!count) {
+          fputs("Error: Invalid <a> or <c> value.\n", stderr);
         } else {
           ai_dump(machine, start, count);
         }
@@ -105,7 +103,7 @@ void ai_console(ai_machine_t *machine)
           "  s          Run one step of the script.\n"
           "  n          Go to next instruction without run it.\n"
           "  p          Go to previous instruction without run it.\n"
-          "  d <s> <a>  Dumps <c> counts of data's memory from <a> address.\n"
+          "  d <a> <c>  Dumps <c> counts of data's memory from <a> address.\n"
           "  q          Quit."
         );
         break;

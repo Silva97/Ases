@@ -15,7 +15,7 @@
 #define AI_DATASIZE 65536
 
 /** The list of valid instructions. */
-#define AI_INSTRUCTIONS "abcdABCDpP$*()@!><+-.?~0123456789"
+#define AI_INSTRUCTIONS "abcdABCDpP$*()@!=><+-.?~0123456789"
 
 /** The character for a comentary. */
 #define AI_COMMENTARY '#'
