@@ -1,0 +1,46 @@
+#!/usr/bin/env ases
+
+# Example developed by Luiz Felipe <felipe.silva337@yahoo.com>
+# GitHub: https://github.com/Silva97/Ases
+
+# -- Usage -- #
+# The first character define if it go encrypt or decrypt the text.
+# D   - Decrypt the text
+# E   - Encrypt the text (or any other character)
+#
+# Example of usage:
+# $ echo "Ei have one secret" | ases cesas.ases
+#
+# Output: l#kdyh#rqh#vhfuhw
+
+
+0
+777777 ----- ---!>   # if input is 'D', set data[0] to zero
+
+# Reading the input
+@
+  0!>
+  ----- -----?(  # if input is '\n', stop the loop
+C+c)@
+# C have the number of characters
+
+.p=>?(  # if data[0] != 0, encrypt the text
+  $
+    =>
+    +++1
+  C-c~*
+
+  .+++++ +++++1  # putchar('\n')
+
+  .3
+@
+
+# Decrypt the text
+@
+  =>
+  ---1
+C-c~)
+
+.+++++ +++++1  # putchar('\n')
+
+.3
