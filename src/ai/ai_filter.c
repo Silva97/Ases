@@ -54,7 +54,7 @@ ai_code_t *ai_filter(FILE *input)
       next              = malloc( sizeof (ai_code_t) );
       next->index       = index++;
       next->line        = line;
-      next->column      = column++;
+      next->column      = column;
       next->instruction = c;
       next->breakpoint  = false;
       next->right       = NULL;
@@ -69,6 +69,8 @@ ai_code_t *ai_filter(FILE *input)
         last        = next;
       }
     }
+
+    column++;
   }
 
   return first;

@@ -44,6 +44,8 @@ void ai_console(ai_machine_t *machine)
   ai_step_status_t status = STEP_OK;
   ai_code_t *code;
   int  address;
+  int  line;
+  int  column;
   int  count;
   int  step;
   char input[64];
@@ -53,13 +55,20 @@ void ai_console(ai_machine_t *machine)
     if (machine->code) {
       ai_context(machine, 10);
       address = machine->code->index;
+      line    = machine->code->line;
+      column  = machine->code->column;
     } else {
       address = 0;
+      line    = 0;
+      column  = 0;
     }
 
     ai_state(machine);
-    printf("<address> " AI_RPRINT "    "
+    printf("<line,column> %d,%d  "
+           "<address> " AI_RPRINT "  "
            "<status> %s\n- ",
+           line,
+           column,
            address,
            ai_get_status(status));
 
