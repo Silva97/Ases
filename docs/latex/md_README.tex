@@ -1,0 +1,74 @@
+Ases is an esoteric programming language developed by me with the objective of be the more usable as possible.
+
+\subsection*{Characteristics}
+
+
+\begin{DoxyItemize}
+\item 65536 bytes of data memory
+\item 65536 bytes of maximum size of the code
+\item Registers A, B, C and D with the size of 2 bytes
+\item Data Pointer of 2 bytes to point the data memory location
+\item Stack of 2 bytes for work with instructions and functions
+\item Any characters that is not a instruction is ignored
+\end{DoxyItemize}
+
+\subsection*{Instructions}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\PBS\centering \textbf{ Command }&\textbf{ Description  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\PBS\centering \textbf{ Command }&\textbf{ Description  }\\\cline{1-2}
+\endhead
+\PBS\centering {\ttfamily a}, {\ttfamily b}, {\ttfamily c} or {\ttfamily d} &Stores the value of the stack to correspondent register \\\cline{1-2}
+\PBS\centering {\ttfamily A}, {\ttfamily B}, {\ttfamily C} or {\ttfamily D} &Gets the value of the correspondent register and stores in the stack \\\cline{1-2}
+\PBS\centering {\ttfamily p} &Stores the value of the stack in the {\bfseries Data Pointer} \\\cline{1-2}
+\PBS\centering {\ttfamily P} &Gets the value of the {\bfseries Data Pointer} and stores in the stack \\\cline{1-2}
+\PBS\centering {\ttfamily \$} &Stores the address of the actual instruction in D register \\\cline{1-2}
+\PBS\centering {\ttfamily $\ast$} &Jumps for the instruction pointed by the value of D register \\\cline{1-2}
+\PBS\centering {\ttfamily (} &Jumps for the address of the symbol {\ttfamily @} matched in the right \\\cline{1-2}
+\PBS\centering {\ttfamily )} &Jumps for the address of the symbol {\ttfamily @} matched in the left \\\cline{1-2}
+\PBS\centering {\ttfamily @} &Does nothing \\\cline{1-2}
+\PBS\centering {\ttfamily !} &Stores the value of the stack in the data memory location pointed by {\bfseries Data Pointer} \\\cline{1-2}
+\PBS\centering {\ttfamily =} &Gets the value in the data memory location pointed by {\bfseries Data Pointer} and stores in the stack \\\cline{1-2}
+\PBS\centering {\ttfamily $>$} &Increments the value of {\bfseries Data Pointer} \\\cline{1-2}
+\PBS\centering {\ttfamily $<$} &Decrements the value of {\bfseries Data Pointer} \\\cline{1-2}
+\PBS\centering {\ttfamily +} &Increments the value of the stack \\\cline{1-2}
+\PBS\centering {\ttfamily -\/} &Decrements the value of the stack \\\cline{1-2}
+\PBS\centering {\ttfamily .} &Clears the value of the stack \\\cline{1-2}
+\PBS\centering {\ttfamily ?} &Only executes the next instruction if the value of the stack is zero \\\cline{1-2}
+\PBS\centering {\ttfamily $\sim$} &Only executes the next instruction if the value of the stack {\bfseries not} is zero \\\cline{1-2}
+\PBS\centering {\ttfamily \#} &Commentary of one line \\\cline{1-2}
+\end{longtabu}
+\subsection*{Functions}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\PBS\centering \textbf{ Function }&\textbf{ Description  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\PBS\centering \textbf{ Function }&\textbf{ Description  }\\\cline{1-2}
+\endhead
+\PBS\centering {\ttfamily 0} &Gets input of one character and stores in the stack \\\cline{1-2}
+\PBS\centering {\ttfamily 1} &Prints a character stored in the stack \\\cline{1-2}
+\PBS\centering {\ttfamily 2} &Prints the message \char`\"{}\+E\+R\+R\+O\+R!\char`\"{} and stops the program (exit status = 255) \\\cline{1-2}
+\PBS\centering {\ttfamily 3} &Exits the program with the status code defined by the value of the stack \\\cline{1-2}
+\PBS\centering {\ttfamily 4} &Adds the value of the A register with the value of the stack \\\cline{1-2}
+\PBS\centering {\ttfamily 5} &Subtracts the value of the A register with the value of the stack \\\cline{1-2}
+\PBS\centering {\ttfamily 6} &Saves a copy of the data memory \\\cline{1-2}
+\PBS\centering {\ttfamily 7} &Restores the copy of the data memory saved by the {\ttfamily 6} function \\\cline{1-2}
+\PBS\centering {\ttfamily 8} &If a copy of the data memory is saved, set the value of the stack to 1. Otherwise to 0 \\\cline{1-2}
+\PBS\centering {\ttfamily 9} &Compares the value of the A and B registers. \\\cline{1-2}
+\end{longtabu}
+$\ast$ If A $>$ B \+: Sets the value of the stack for 2
+\begin{DoxyItemize}
+\item If A == B \+: Sets the value of the stack for 1
+\item If A $<$ B \+: Sets the value of the stack for 0 
+\end{DoxyItemize}

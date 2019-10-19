@@ -1,0 +1,129 @@
+\hypertarget{ai__step_8c}{}\section{src/ai/ai\+\_\+step.c File Reference}
+\label{ai__step_8c}\index{src/ai/ai\+\_\+step.\+c@{src/ai/ai\+\_\+step.\+c}}
+
+
+The \hyperlink{ai__step_8c_aeea37f15a9edc5a9be9fc23108c41a62}{ai\+\_\+step()}, \hyperlink{ai__step_8c_ae3cfcf99aa5a6889a67d2c8cf1e0fbfc}{ai\+\_\+code\+\_\+sindex()}, \hyperlink{ai__step_8c_a4e5c597b7363ec64f152df5779857bfc}{ai\+\_\+code\+\_\+smatch()} and \hyperlink{ai__step_8c_a849ed157f6bac41cd6cb3bfb1c1fb4ee}{ai\+\_\+code\+\_\+error()} source code.  
+
+
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}ai/ai.\+h\char`\"{}}\newline
+Include dependency graph for ai\+\_\+step.\+c\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=278pt]{ai__step_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structai__code__t}{ai\+\_\+code\+\_\+t} $\ast$ \hyperlink{ai__step_8c_ae3cfcf99aa5a6889a67d2c8cf1e0fbfc}{ai\+\_\+code\+\_\+sindex} (\hyperlink{structai__code__t}{ai\+\_\+code\+\_\+t} $\ast$code, int index)
+\begin{DoxyCompactList}\small\item\em Search for a instruction by the index. \end{DoxyCompactList}\item 
+\hyperlink{structai__code__t}{ai\+\_\+code\+\_\+t} $\ast$ \hyperlink{ai__step_8c_a4e5c597b7363ec64f152df5779857bfc}{ai\+\_\+code\+\_\+smatch} (\hyperlink{structai__code__t}{ai\+\_\+code\+\_\+t} $\ast$code, char direction)
+\begin{DoxyCompactList}\small\item\em Search for matched \textquotesingle{}@\textquotesingle{} for left or right. \end{DoxyCompactList}\item 
+void \hyperlink{ai__step_8c_a849ed157f6bac41cd6cb3bfb1c1fb4ee}{ai\+\_\+code\+\_\+error} (\hyperlink{structai__code__t}{ai\+\_\+code\+\_\+t} $\ast$instruction, char $\ast$message)
+\begin{DoxyCompactList}\small\item\em Prints a error message with informations about the instruction. \end{DoxyCompactList}\item 
+\hyperlink{machine_8h_ac2d34692cf8aa03fde6852d02d545ce5}{ai\+\_\+step\+\_\+status\+\_\+t} \hyperlink{ai__step_8c_aeea37f15a9edc5a9be9fc23108c41a62}{ai\+\_\+step} (\hyperlink{structai__machine__t}{ai\+\_\+machine\+\_\+t} $\ast$machine)
+\begin{DoxyCompactList}\small\item\em Run one step of the Ases machine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{ai__step_8c_aeea37f15a9edc5a9be9fc23108c41a62}{ai\+\_\+step()}, \hyperlink{ai__step_8c_ae3cfcf99aa5a6889a67d2c8cf1e0fbfc}{ai\+\_\+code\+\_\+sindex()}, \hyperlink{ai__step_8c_a4e5c597b7363ec64f152df5779857bfc}{ai\+\_\+code\+\_\+smatch()} and \hyperlink{ai__step_8c_a849ed157f6bac41cd6cb3bfb1c1fb4ee}{ai\+\_\+code\+\_\+error()} source code. 
+
+\begin{DoxyAuthor}{Author}
+Luiz Felipe \href{mailto:felipe.silva337@yahoo.com}{\tt felipe.\+silva337@yahoo.\+com} 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+10/2019 
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+M\+IT License 
+\end{DoxyCopyright}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{ai__step_8c_a849ed157f6bac41cd6cb3bfb1c1fb4ee}\label{ai__step_8c_a849ed157f6bac41cd6cb3bfb1c1fb4ee}} 
+\index{ai\+\_\+step.\+c@{ai\+\_\+step.\+c}!ai\+\_\+code\+\_\+error@{ai\+\_\+code\+\_\+error}}
+\index{ai\+\_\+code\+\_\+error@{ai\+\_\+code\+\_\+error}!ai\+\_\+step.\+c@{ai\+\_\+step.\+c}}
+\subsubsection{\texorpdfstring{ai\+\_\+code\+\_\+error()}{ai\_code\_error()}}
+{\footnotesize\ttfamily void ai\+\_\+code\+\_\+error (\begin{DoxyParamCaption}\item[{\hyperlink{structai__code__t}{ai\+\_\+code\+\_\+t} $\ast$}]{instruction,  }\item[{char $\ast$}]{message }\end{DoxyParamCaption})}
+
+
+
+Prints a error message with informations about the instruction. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em instruction} & The failed instruction. \\
+\hline
+{\em message} & The error message to print. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{ai__step_8c_ae3cfcf99aa5a6889a67d2c8cf1e0fbfc}\label{ai__step_8c_ae3cfcf99aa5a6889a67d2c8cf1e0fbfc}} 
+\index{ai\+\_\+step.\+c@{ai\+\_\+step.\+c}!ai\+\_\+code\+\_\+sindex@{ai\+\_\+code\+\_\+sindex}}
+\index{ai\+\_\+code\+\_\+sindex@{ai\+\_\+code\+\_\+sindex}!ai\+\_\+step.\+c@{ai\+\_\+step.\+c}}
+\subsubsection{\texorpdfstring{ai\+\_\+code\+\_\+sindex()}{ai\_code\_sindex()}}
+{\footnotesize\ttfamily \hyperlink{structai__code__t}{ai\+\_\+code\+\_\+t}$\ast$ ai\+\_\+code\+\_\+sindex (\begin{DoxyParamCaption}\item[{\hyperlink{structai__code__t}{ai\+\_\+code\+\_\+t} $\ast$}]{code,  }\item[{int}]{index }\end{DoxyParamCaption})}
+
+
+
+Search for a instruction by the index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & The code struct. \\
+\hline
+{\em index} & The index of the instruction to search. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N\+U\+LL} & If not find the instruction. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyReturn}{Returns}
+The pointer to the instruction. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ai__step_8c_a4e5c597b7363ec64f152df5779857bfc}\label{ai__step_8c_a4e5c597b7363ec64f152df5779857bfc}} 
+\index{ai\+\_\+step.\+c@{ai\+\_\+step.\+c}!ai\+\_\+code\+\_\+smatch@{ai\+\_\+code\+\_\+smatch}}
+\index{ai\+\_\+code\+\_\+smatch@{ai\+\_\+code\+\_\+smatch}!ai\+\_\+step.\+c@{ai\+\_\+step.\+c}}
+\subsubsection{\texorpdfstring{ai\+\_\+code\+\_\+smatch()}{ai\_code\_smatch()}}
+{\footnotesize\ttfamily \hyperlink{structai__code__t}{ai\+\_\+code\+\_\+t}$\ast$ ai\+\_\+code\+\_\+smatch (\begin{DoxyParamCaption}\item[{\hyperlink{structai__code__t}{ai\+\_\+code\+\_\+t} $\ast$}]{code,  }\item[{char}]{direction }\end{DoxyParamCaption})}
+
+
+
+Search for matched \textquotesingle{}@\textquotesingle{} for left or right. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & The initial instruction. \\
+\hline
+{\em direction} & \textquotesingle{}L\textquotesingle{} to left, \textquotesingle{}R\textquotesingle{} to right. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em N\+U\+LL} & If not matched any instruction. \\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyReturn}{Returns}
+The matched instruction. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{ai__step_8c_aeea37f15a9edc5a9be9fc23108c41a62}\label{ai__step_8c_aeea37f15a9edc5a9be9fc23108c41a62}} 
+\index{ai\+\_\+step.\+c@{ai\+\_\+step.\+c}!ai\+\_\+step@{ai\+\_\+step}}
+\index{ai\+\_\+step@{ai\+\_\+step}!ai\+\_\+step.\+c@{ai\+\_\+step.\+c}}
+\subsubsection{\texorpdfstring{ai\+\_\+step()}{ai\_step()}}
+{\footnotesize\ttfamily \hyperlink{machine_8h_ac2d34692cf8aa03fde6852d02d545ce5}{ai\+\_\+step\+\_\+status\+\_\+t} ai\+\_\+step (\begin{DoxyParamCaption}\item[{\hyperlink{structai__machine__t}{ai\+\_\+machine\+\_\+t} $\ast$}]{machine }\end{DoxyParamCaption})}
+
+
+
+Run one step of the Ases machine. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em machine} & The Ases machine to run the instruction. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The status of the machine. 
+\end{DoxyReturn}

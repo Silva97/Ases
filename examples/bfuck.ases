@@ -1,0 +1,128 @@
+#!/usr/bin/env ases
+
+# Developed by Luiz Felipe <felipe.silva337@yahoo.com>
+# GitHub: https://github.com/Silva97/Ases
+
+# This is a fucking brainfuck interpreter!
+# Yeah! This is an interpreter of a esoteric language developed
+# in a another esoteric language.
+
+# Note: Use the '$' character to sinalize the end of the code.
+
+# Instructions of brainfuck, if you don't remember:
+# + (43)  Increments the value of the cell
+# , (44)  Reads the input of one character and store in the cell
+# - (45)  Decrements the value of the cell
+# . (46)  Outputs the character in the cell
+# < (60)  Previous cell of memory
+# > (62)  Next cell of memory
+# [ (91)  Go to ']' matched in right if cell is zero
+# ] (93)  Got to '[' matched in left if cell NOT is zero
+
+
+# BUGS: The brainfuck code is readed from stdin, redirections
+# with '|' or '<' truncate the stdin and can't be read
+# input with `,' instruction.
+
+
+>> # Reserving data
+# data[0] = Pointer to the cell of memory
+# data[1] = Reserved to preserve D value
+
+# Reading all the code and storing starting in data[1]
+@
+  0!>
+777 ----- -~) # if stack == '$', don't loop.
+
+.!>       # Setting end data cell to zero
+Pa.pA!    # Preserving address of end of the code in data[0]
+
+
+## Interpreter ##
+.++a   # Pointing to the first instruction
+
+$Ap=?( # if data[A] != 0
+  b    # Preserving instruction in B
+  A+a  # Increments A to point next instruction
+
+  B7777 ---~(   # Instruction + (ASCII 43)
+    .p=p=+!
+    *    # Like a continue
+  @
+
+  B7777 ----~(  # Instruction , (ASCII 44)
+    .p=p0!
+    *
+  @
+
+  B7777 -----~(  # Instruction - (ASCII 45)
+    .p=p=-!
+    *
+  @
+
+  B7777 ----- -~(  # Instruction . (ASCII 46)
+    .p=p=1
+    *
+  @
+
+  B777777 ~(  # Instruction < (ASCII 60)
+    .p=-!
+    *
+  @
+
+  B777777 --~(  # Instruction > (ASCII 62)
+    .p=+!
+    *
+  @
+
+  # Note: In this point, A = Next Instruction
+
+  B77777 7777 -~(  # Instruction [ (ASCII 91)
+    .+pD!          # Preserving D
+
+    .b             # Using B to context indication
+    .p=p=~(A-a$    # if cell == 0 then loop...
+      A+ap=c       # C = Next instruction
+
+      77777 7777 -~(  # if C == '['
+        B+b   # Increments context
+        *     # Like a continue... Again
+      @
+
+      C77777 7777 ---~(  # if C == ']'
+        B~(  # if B == 0, matched!!!
+          .+p=d*    # Restoring D
+        @
+        B-b  # Decrements context
+      @
+    *@
+
+    .+p=d*   # Restoring D
+  @
+
+
+  B77777 7777 ---~(  # Instruction ] (ASCII 93)
+    .+pD!            # Preserving D
+
+    .b             # Using B to context indication
+    .p=p=?(A-a$    # if cell != 0 then loop...
+      A-ap=c       # C = Previous instruction
+
+      77777 7777 ---~(  # if C == ']'
+        B+b   # Increments context
+        *
+      @
+
+      C77777 7777 -~(  # if C == '['
+        B~(  # if B == 0, matched!!!
+          .+p=d*    # Restoring D
+        @
+        B-b  # Decrements context
+      @
+    *@
+
+    .+p=d*   # Restoring D
+  @
+
+  # Do nothing to any other character
+*@

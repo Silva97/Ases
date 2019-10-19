@@ -1,0 +1,58 @@
+\hypertarget{argparse_8h}{}\section{include/argparse.h File Reference}
+\label{argparse_8h}\index{include/argparse.\+h@{include/argparse.\+h}}
+
+
+Parse of the command line arguments.  
+
+
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structarg__list__t}{arg\+\_\+list\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Linked list of the arguments. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{argparse_8h_a41933758bc61936be1063a3fdb08f1c1}{arg\+\_\+type\+\_\+t} \{ \hyperlink{argparse_8h_a41933758bc61936be1063a3fdb08f1c1a468b290a6b16925fa56374f74698a9d7}{O\+P\+T\+I\+O\+N\+AL}, 
+\hyperlink{argparse_8h_a41933758bc61936be1063a3fdb08f1c1ac2472a8307176a58d6ad6e8c87098a50}{P\+O\+S\+I\+T\+I\+O\+N\+AL}, 
+\hyperlink{argparse_8h_a41933758bc61936be1063a3fdb08f1c1a21043ddfa5289b4cf14cd4e3f5a89b62}{Q\+U\+E\+RY}
+ \}\begin{DoxyCompactList}\small\item\em Types of the argument. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Parse of the command line arguments. 
+
+\begin{DoxyAuthor}{Author}
+Luiz Felipe \href{mailto:felipe.silva337@yahoo.com}{\tt felipe.\+silva337@yahoo.\+com}  10/2019 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+M\+IT License 
+\end{DoxyCopyright}
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{argparse_8h_a41933758bc61936be1063a3fdb08f1c1}\label{argparse_8h_a41933758bc61936be1063a3fdb08f1c1}} 
+\index{argparse.\+h@{argparse.\+h}!arg\+\_\+type\+\_\+t@{arg\+\_\+type\+\_\+t}}
+\index{arg\+\_\+type\+\_\+t@{arg\+\_\+type\+\_\+t}!argparse.\+h@{argparse.\+h}}
+\subsubsection{\texorpdfstring{arg\+\_\+type\+\_\+t}{arg\_type\_t}}
+{\footnotesize\ttfamily enum \hyperlink{argparse_8h_a41933758bc61936be1063a3fdb08f1c1}{arg\+\_\+type\+\_\+t}}
+
+
+
+Types of the argument. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{O\+P\+T\+I\+O\+N\+AL@{O\+P\+T\+I\+O\+N\+AL}!argparse.\+h@{argparse.\+h}}\index{argparse.\+h@{argparse.\+h}!O\+P\+T\+I\+O\+N\+AL@{O\+P\+T\+I\+O\+N\+AL}}}\mbox{\Hypertarget{argparse_8h_a41933758bc61936be1063a3fdb08f1c1a468b290a6b16925fa56374f74698a9d7}\label{argparse_8h_a41933758bc61936be1063a3fdb08f1c1a468b290a6b16925fa56374f74698a9d7}} 
+O\+P\+T\+I\+O\+N\+AL&Like\+: -\/d, -\/x etc. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+O\+S\+I\+T\+I\+O\+N\+AL@{P\+O\+S\+I\+T\+I\+O\+N\+AL}!argparse.\+h@{argparse.\+h}}\index{argparse.\+h@{argparse.\+h}!P\+O\+S\+I\+T\+I\+O\+N\+AL@{P\+O\+S\+I\+T\+I\+O\+N\+AL}}}\mbox{\Hypertarget{argparse_8h_a41933758bc61936be1063a3fdb08f1c1ac2472a8307176a58d6ad6e8c87098a50}\label{argparse_8h_a41933758bc61936be1063a3fdb08f1c1ac2472a8307176a58d6ad6e8c87098a50}} 
+P\+O\+S\+I\+T\+I\+O\+N\+AL&The obligatory arguments \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Q\+U\+E\+RY@{Q\+U\+E\+RY}!argparse.\+h@{argparse.\+h}}\index{argparse.\+h@{argparse.\+h}!Q\+U\+E\+RY@{Q\+U\+E\+RY}}}\mbox{\Hypertarget{argparse_8h_a41933758bc61936be1063a3fdb08f1c1a21043ddfa5289b4cf14cd4e3f5a89b62}\label{argparse_8h_a41933758bc61936be1063a3fdb08f1c1a21043ddfa5289b4cf14cd4e3f5a89b62}} 
+Q\+U\+E\+RY&Arguments like\+: name=value \\
+\hline
+
+\end{DoxyEnumFields}
