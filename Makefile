@@ -7,17 +7,21 @@ SRC=$(wildcard \
 OBJ=$(call src2obj,$(SRC))
 
 
-all: $(OBJ)
+all: mkdir $(OBJ)
 	$(LK) $(OBJ) -o $(BINDIR)/$(BINARY)
+
+mkdir:
+	mkdir -p $(OBJDIR)/ai
 
 install:
 	cp $(BINDIR)/$(BINARY) $(IPATH)
 
 clean:
 	rm `find $(OBJDIR) -name *.o`
+	rm $(BINDIR)/ases
 
 doc:
-	doxygen doxyfile
+	doxygen
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(CC) -c $< -o $@ $(CFLAGS)
