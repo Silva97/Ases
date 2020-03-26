@@ -1,6 +1,6 @@
 # Ases
 Ases is an esoteric programming language developed with the objective of be
-more useful as possible. You can see examples of code [clicking here](examples/).
+more useful as possible. You can see examples of code [clicking here](https://github.com/Silva97/Ases/tree/master/examples).
 
 To install, just run:
 ```
