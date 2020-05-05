@@ -17,7 +17,7 @@ $ ases -h
 The documentation is generated with [Doxygen](http://www.doxygen.nl/). For see it online, [click here](https://silva97.github.io/Ases/html/index.html).
 
 ## Characteristics
-* Registers A, B, C and D with the size of 2 bytes.
+* 12 registers A, B, C .. L with the size of 2 bytes.
 * Data Pointer of 2 bytes to point the data memory location.
 * Stack of 2 bytes for work with instructions and functions.
 * Any characters that is not a instruction is ignored.
@@ -25,12 +25,12 @@ The documentation is generated with [Doxygen](http://www.doxygen.nl/). For see i
 ## Instructions
 |        Command       | Description                                                                                    |
 |         :---:        | :---                                                                                           |
-| `a`, `b`, `c` or `d` | Stores the value of the stack to correspondent register                                        |
-| `A`, `B`, `C` or `D` | Gets the value of the correspondent register and stores in the stack                           |
+|      `a` .. `l`      | Stores the value of the stack to correspondent register                                        |
+|      `A` .. `L`      | Gets the value of the correspondent register and stores in the stack                           |
 |         `p`          | Stores the value of the stack in the **Data Pointer**                                          |
 |         `P`          | Gets the value of the **Data Pointer** and stores in the stack                                 |
-|         `$`          | Stores the address of the next instruction in D register                                       |
-|         `*`          | Jumps for the instruction pointed by the value of D register                                   |
+|         `$`          | Stores the address of the next instruction in L register                                       |
+|         `*`          | Jumps for the instruction pointed by the value of L register                                   |
 |         `(`          | Jumps for the address of the symbol `@` matched in the right                                   |
 |         `)`          | Jumps for the address of the symbol `@` matched in the left                                    |
 |         `@`          | Does nothing                                                                                   |
