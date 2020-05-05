@@ -16,7 +16,7 @@
 #define AI_DATASIZE 65536
 
 /** The list of valid instructions. */
-#define AI_INSTRUCTIONS "abcdABCDpP$*()@!=><+-.?~0123456789"
+#define AI_INSTRUCTIONS "abcdefghijklABCDEFGHIJKLpP$*()@!=><+-.?~0123456789"
 
 /** The character for a comentary. */
 #define AI_COMMENTARY '#'
@@ -77,6 +77,14 @@ typedef struct ai_machine {
   ai_register_t rb;                 /**< B register. */
   ai_register_t rc;                 /**< C register. */
   ai_register_t rd;                 /**< D register. */
+  ai_register_t re;                 /**< E register. */
+  ai_register_t rf;                 /**< F register. */
+  ai_register_t rg;                 /**< G register. */
+  ai_register_t rh;                 /**< H register. */
+  ai_register_t ri;                 /**< I register. */
+  ai_register_t rj;                 /**< J register. */
+  ai_register_t rk;                 /**< K register. */
+  ai_register_t rl;                 /**< L register. */
 } ai_machine_t;
 
 

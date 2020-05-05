@@ -78,7 +78,7 @@ int main(int argc, char **argv)
       ai_code_error(ases->code, "This instruction can't be used in EOF.");
       exit(EXIT_FAILURE);
     case STEP_POINTER_INVALID:
-        ai_code_error(ases->code, "Pointer in D register is not valid.");
+        ai_code_error(ases->code, "Pointer in L register is not valid.");
         exit(EXIT_FAILURE);
     case STEP_NOT_LMATCH:
       ai_code_error(ases->code, "Not matched `@' in the left.");
@@ -111,7 +111,7 @@ int main(int argc, char **argv)
 void show_help()
 {
   puts(
-    "Ases v2.0 - Interpreter to Ases esoteric programming language.\n"
+    "Ases v2.1 - Interpreter to Ases esoteric programming language.\n"
     "Developed by Luiz Felipe <felipe.silva337@yahoo.com>\n"
     "GitHub: https://github.com/Silva97/Ases\n\n"
 
@@ -121,12 +121,12 @@ void show_help()
     "  file              The Ases script. If not defined, read from stdin.\n\n"
 
     "ASES INSTRUCTIONS\n"
-    "  a,b,c,d    Stores the value of the stack in correspondent register.\n"
-    "  A,B,C,D    Gets the value of the register and stores in the stack.\n"
+    "  a..l       Stores the value of the stack in correspondent register.\n"
+    "  A..L       Gets the value of the register and stores in the stack.\n"
     "  p          Stores the value of the stack in the Data Pointer.\n"
     "  P          Gets the value of Data Pointer and stores in the stack.\n"
-    "  $          Stores the address of the next instruction in D register.\n"
-    "  *          Jumps for the instruction pointed by D register.\n"
+    "  $          Stores the address of the next instruction in L register.\n"
+    "  *          Jumps for the instruction pointed by L register.\n"
     "  (          Jumps for the instruction `@' matched in the right.\n"
     "  )          Jumps for the instruction `@' matched in the left.\n"
     "  @          Does nothing.\n"

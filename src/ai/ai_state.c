@@ -16,15 +16,31 @@
 void ai_state(ai_machine_t *machine)
 {
   printf("Stack = " AI_RPRINT
-         " | DP = " AI_RPRINT
          " | A = " AI_RPRINT
          " | B = " AI_RPRINT
          " | C = " AI_RPRINT
-         " | D = " AI_RPRINT "\n",
+         " | D = " AI_RPRINT
+         " | E = " AI_RPRINT
+         " | F = " AI_RPRINT "\n"
+         "   DP = " AI_RPRINT
+         " | G = " AI_RPRINT
+         " | H = " AI_RPRINT
+         " | I = " AI_RPRINT
+         " | J = " AI_RPRINT
+         " | K = " AI_RPRINT
+         " | L = " AI_RPRINT "\n",
          machine->stack,
-         machine->dp,
          machine->ra,
          machine->rb,
          machine->rc,
-         machine->rd);
+         machine->rd,
+         machine->re,
+         machine->rf,
+         machine->dp,
+         machine->rg,
+         machine->rh,
+         machine->ri,
+         machine->rj,
+         machine->rk,
+         machine->rl);
 }

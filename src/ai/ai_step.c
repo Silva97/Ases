@@ -107,6 +107,30 @@ ai_step_status_t ai_step(ai_machine_t *machine)
     case 'd':
       machine->rd = machine->stack;
       break;
+    case 'e':
+      machine->re = machine->stack;
+      break;
+    case 'f':
+      machine->rf = machine->stack;
+      break;
+    case 'g':
+      machine->rg = machine->stack;
+      break;
+    case 'h':
+      machine->rh = machine->stack;
+      break;
+    case 'i':
+      machine->ri = machine->stack;
+      break;
+    case 'j':
+      machine->rj = machine->stack;
+      break;
+    case 'k':
+      machine->rk = machine->stack;
+      break;
+    case 'l':
+      machine->rl = machine->stack;
+      break;
     case 'p':
       machine->dp = machine->stack;
       break;
@@ -122,6 +146,30 @@ ai_step_status_t ai_step(ai_machine_t *machine)
     case 'D':
       machine->stack = machine->rd;
       break;
+    case 'E':
+      machine->stack = machine->re;
+      break;
+    case 'F':
+      machine->stack = machine->rf;
+      break;
+    case 'G':
+      machine->stack = machine->rg;
+      break;
+    case 'H':
+      machine->stack = machine->rh;
+      break;
+    case 'I':
+      machine->stack = machine->ri;
+      break;
+    case 'J':
+      machine->stack = machine->rj;
+      break;
+    case 'K':
+      machine->stack = machine->rk;
+      break;
+    case 'L':
+      machine->stack = machine->rl;
+      break;
     case 'P':
       machine->stack = machine->dp;
       break;
@@ -129,10 +177,10 @@ ai_step_status_t ai_step(ai_machine_t *machine)
       if (!machine->code->right)
         return STEP_NEXT_EOF;
 
-      machine->rd = machine->code->right->index;
+      machine->rl = machine->code->right->index;
       break;
     case '*':
-      instruction = ai_code_sindex(machine->first, machine->rd);
+      instruction = ai_code_sindex(machine->first, machine->rl);
       if (!instruction)
         return STEP_POINTER_INVALID;
 

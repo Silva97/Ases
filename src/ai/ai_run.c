@@ -36,4 +36,12 @@ void ai_reset(ai_machine_t *machine)
   machine->rb    = 0;
   machine->rc    = 0;
   machine->rd    = 0;
+  machine->re    = 0;
+  machine->rf    = 0;
+  machine->rg    = 0;
+  machine->rh    = 0;
+  machine->ri    = 0;
+  machine->rj    = 0;
+  machine->rk    = 0;
+  machine->rl    = 0;
 }
