@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Ases
-   &#160;<span id="projectnumber">2.0</span>
+   &#160;<span id="projectnumber">2.1</span>
    </div>
    <div id="projectbrief">Ases interpreter and debugger</div>
   </td>
@@ -64,12 +64,12 @@ $(function() {
 <div class="title">Ases </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Ases is an esoteric programming language developed with the objective of be more useful as possible. You can see examples of code <a href="examples/">clicking here</a>.</p>
+<div class="textblock"><p>Ases is an esoteric programming language developed with the objective of be more useful as possible. You can see examples of code <a href="https://github.com/Silva97/Ases/tree/master/examples">clicking here</a>.</p>
 <p>To install, just run: </p><div class="fragment"><div class="line">$ make</div><div class="line">$ sudo make install</div></div><!-- fragment --><p>For see help about usage, run: </p><div class="fragment"><div class="line">$ ases -h</div></div><!-- fragment --><h2>Documentation</h2>
 <p>The documentation is generated with <a href="http://www.doxygen.nl/">Doxygen</a>. For see it online, <a href="https://silva97.github.io/Ases/html/index.html">click here</a>.</p>
 <h2>Characteristics</h2>
 <ul>
-<li>Registers A, B, C and D with the size of 2 bytes.</li>
+<li>12 registers A, B, C .. L with the size of 2 bytes.</li>
 <li>Data Pointer of 2 bytes to point the data memory location.</li>
 <li>Stack of 2 bytes for work with instructions and functions.</li>
 <li>Any characters that is not a instruction is ignored.</li>
@@ -79,17 +79,17 @@ $(function() {
 <tr>
 <th align="center">Command </th><th align="left">Description  </th></tr>
 <tr>
-<td align="center"><code>a</code>, <code>b</code>, <code>c</code> or <code>d</code> </td><td align="left">Stores the value of the stack to correspondent register </td></tr>
+<td align="center"><code>a</code> .. <code>l</code> </td><td align="left">Stores the value of the stack to correspondent register </td></tr>
 <tr>
-<td align="center"><code>A</code>, <code>B</code>, <code>C</code> or <code>D</code> </td><td align="left">Gets the value of the correspondent register and stores in the stack </td></tr>
+<td align="center"><code>A</code> .. <code>L</code> </td><td align="left">Gets the value of the correspondent register and stores in the stack </td></tr>
 <tr>
 <td align="center"><code>p</code> </td><td align="left">Stores the value of the stack in the <b>Data Pointer</b> </td></tr>
 <tr>
 <td align="center"><code>P</code> </td><td align="left">Gets the value of the <b>Data Pointer</b> and stores in the stack </td></tr>
 <tr>
-<td align="center"><code>$</code> </td><td align="left">Stores the address of the next instruction in D register </td></tr>
+<td align="center"><code>$</code> </td><td align="left">Stores the address of the next instruction in L register </td></tr>
 <tr>
-<td align="center"><code>*</code> </td><td align="left">Jumps for the instruction pointed by the value of D register </td></tr>
+<td align="center"><code>*</code> </td><td align="left">Jumps for the instruction pointed by the value of L register </td></tr>
 <tr>
 <td align="center"><code>(</code> </td><td align="left">Jumps for the address of the symbol <code>@</code> matched in the right </td></tr>
 <tr>
@@ -145,7 +145,7 @@ $(function() {
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Mar 25 2020 21:08:58 for Ases by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Tue May 5 2020 01:02:48 for Ases by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.13
 </small></address>
