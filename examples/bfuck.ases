@@ -78,7 +78,7 @@ $Ap=?( # if data[A] != 0
   # Note: In this point, A = Next Instruction
 
   B77777 7777 -~(  # Instruction [ (ASCII 91)
-    .+pD!          # Preserving D
+    .+pL!          # Preserving L
 
     .b             # Using B to context indication
     .p=p=~(A-a$    # if cell == 0 then loop...
@@ -91,18 +91,18 @@ $Ap=?( # if data[A] != 0
 
       C77777 7777 ---~(  # if C == ']'
         B~(  # if B == 0, matched!!!
-          .+p=d*    # Restoring D
+          .+p=l*    # Restoring L
         @
         B-b  # Decrements context
       @
     *@
 
-    .+p=d*   # Restoring D
+    .+p=l*   # Restoring L
   @
 
 
   B77777 7777 ---~(  # Instruction ] (ASCII 93)
-    .+pD!            # Preserving D
+    .+pL!            # Preserving L
 
     .b             # Using B to context indication
     .p=p=?(A-a$    # if cell != 0 then loop...
@@ -115,13 +115,13 @@ $Ap=?( # if data[A] != 0
 
       C77777 7777 -~(  # if C == '['
         B~(  # if B == 0, matched!!!
-          .+p=d*    # Restoring D
+          .+p=l*    # Restoring L
         @
         B-b  # Decrements context
       @
     *@
 
-    .+p=d*   # Restoring D
+    .+p=l*   # Restoring L
   @
 
   # Do nothing to any other character

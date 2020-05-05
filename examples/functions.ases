@@ -15,15 +15,15 @@ $(  # function2(A)
   A11111 11111
   .+++++ +++++1
 
-  .p=+++++ ++d*  # Return
-@D+!>
+  .p=+++++ ++l*  # Return
+@L+!>
 
 $(  # function3(A)
   A1+1+1+1+1 +1+1+1+1+1
   .+++++ +++++1
 
-  .p=+++++ +++d* # Return
-@D+!>
+  .p=+++++ +++l* # Return
+@L+!>
 
 
 >>>>>>>  # Reserving memory for use in functions.
@@ -38,10 +38,10 @@ Pa.p>A!  # Preserving end of the table in data[1]
 
 ### Main ###
 0a
-.p$D!>>=d* # Call function2
-.p$D!>>=d* # Call function2
-.p$D!>>=d* # Call function2
+.p$L!>>=l* # Call function2
+.p$L!>>=l* # Call function2
+.p$L!>>=l* # Call function2
 
-.p$D!>>>=d* # Call function3
+.p$L!>>>=l* # Call function3
 
 .3 # Is necessary any other instruction after a call...
